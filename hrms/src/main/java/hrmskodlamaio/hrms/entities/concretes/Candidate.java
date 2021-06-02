@@ -1,14 +1,18 @@
 package hrmskodlamaio.hrms.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","candidateCv"})
 public class Candidate {
 	
 	@Id
@@ -40,6 +45,9 @@ public class Candidate {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id",referencedColumnName = "id")
 	private User user;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<CandidateCv> candidateCv;
 
 	public Candidate(int userId, String firstName, String lastName, String identityNumber, Date birthOfDate) {
 		this.userId = userId;
