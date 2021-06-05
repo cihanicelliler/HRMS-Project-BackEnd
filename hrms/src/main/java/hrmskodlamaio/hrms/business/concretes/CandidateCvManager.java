@@ -15,10 +15,10 @@ import hrmskodlamaio.hrms.dataAccess.abstracts.CandidateCvDao;
 import hrmskodlamaio.hrms.entities.concretes.CandidateCv;
 
 @Service
-public class CandidateCvManager implements CandidateCvService{
+public class CandidateCvManager implements CandidateCvService {
 
 	private CandidateCvDao candidateCvDao;
-	
+
 	@Autowired
 	public CandidateCvManager(CandidateCvDao candidateCvDao) {
 		super();
@@ -37,14 +37,7 @@ public class CandidateCvManager implements CandidateCvService{
 	}
 
 	@Override
-	public DataResult<List<CandidateCv>> getAllBySortedGraduationYear() {
-		Sort sort = Sort.by(Sort.Direction.DESC,"graduationYear");
-		return new SuccessDataResult<List<CandidateCv>>(this.candidateCvDao.findAll(sort));
-	}
-
-	@Override
-	public DataResult<List<CandidateCv>> getAllBySortedYearOfLeaving() {
-		Sort sort = Sort.by(Sort.Direction.DESC,"yearOfLeaving");
-		return new SuccessDataResult<List<CandidateCv>>(this.candidateCvDao.findAll(sort));
+	public DataResult<List<CandidateCv>> findAllByCandidateUserId(int id) {
+		return new SuccessDataResult<List<CandidateCv>>(this.candidateCvDao.findAllByCandidateUserId(id));
 	}
 }

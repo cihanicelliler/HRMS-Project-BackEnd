@@ -3,6 +3,7 @@ package hrmskodlamaio.hrms.business.concretes;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hrmskodlamaio.hrms.business.abstracts.CandidateService;
@@ -25,6 +26,7 @@ public class CandidateManager implements CandidateService {
 	private UserService userService;
 	private IdentityValidationService identityValidationService;
 
+	@Autowired
 	public CandidateManager(CandidateDao candidateDao, UserService userService,
 			IdentityValidationService identityValidationService) {
 		super();

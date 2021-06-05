@@ -36,15 +36,10 @@ public class CandidateCvsController {
 		return this.candidateCvService.add(candidateCv);
 	}
 	
-	@GetMapping("/getAllBySortedGraduationYear")
-	DataResult<List<CandidateCv>> getAllBySortedGraduationYear(){
+	@GetMapping("/findAllByCandidateId")
+	DataResult<List<CandidateCv>> findAllByCandidateId(int id){
 		
-		return this.candidateCvService.getAllBySortedGraduationYear();
+		return this.candidateCvService.findAllByCandidateUserId(id);
 	}
 	
-	@GetMapping("/getAllBySortedYearOfLeaving")
-	DataResult<List<CandidateCv>> getAllBySortedYearOfLeaving(){
-		
-		return this.candidateCvService.getAllBySortedYearOfLeaving();
-	}
 }

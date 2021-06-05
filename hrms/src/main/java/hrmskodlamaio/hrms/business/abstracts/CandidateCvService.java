@@ -13,8 +13,7 @@ public interface CandidateCvService {
 	
 	Result add(CandidateCv candidateCv);
 	
-	DataResult<List<CandidateCv>> getAllBySortedGraduationYear();
+	DataResult<List<CandidateCv>> findAllByCandidateUserId(int id);
 	
-	DataResult<List<CandidateCv>> getAllBySortedYearOfLeaving();
 
 }

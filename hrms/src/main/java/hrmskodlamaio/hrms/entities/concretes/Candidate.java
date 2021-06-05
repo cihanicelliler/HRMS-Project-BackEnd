@@ -47,6 +47,7 @@ public class Candidate {
 	private User user;
 	
 	@OneToMany(mappedBy = "candidate")
+	@JsonIgnoreProperties("candidate")
 	private List<CandidateCv> candidateCv;
 
 	public Candidate(int userId, String firstName, String lastName, String identityNumber, Date birthOfDate) {
